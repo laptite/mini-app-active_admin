@@ -1,0 +1,13 @@
+%header.primary-header
+
+  %nav
+    .logo
+      = link_to "Active Admin Mini App", root_path
+    
+    .admin-user
+      - if current_admin_user
+        = "logged in as #{current_admin_user.email}"
+        |
+        = link_to "admin", admin_root_path
+      - else
+        = link_to "login", admin_user_session_path

@@ -1,0 +1,132 @@
+
+// Alpha
+@mixin opacity( $value: 0.5 ) {
+  filter: alpha(opacity = $value * 100);
+  //FIXME add in prefixes
+  opacity: $value;
+}
+
+// Background Alpha
+@mixin background-alpha( $color, $alpha ) {
+  background-color: $color;
+  background-color: rgba($color, $alpha);
+}
+
+// Browser Prefixes
+$default-prefixes: webkit moz ms o;
+
+@mixin prefixes( $property, $value, $prefixes: $default-prefixes ) {
+  @each $prefix in $prefixes {
+    -#{$prefix}-#{$property}: #{$value};
+  }
+  #{$property}: #{$value};
+}
+
+// Useful for transitioning transform property specific to webkit issue
+@mixin double-prefix( $property, $value, $prefixes: $default-prefixes ) {
+  @each $prefix in $prefixes {
+    -#{$prefix}-#{$property}: -#{$prefix}-#{$value};
+  }
+  #{$property}: #{$value};
+}
+
+// Buttons
+@mixin btn() {
+  text-decoration: none;
+  text-transform: uppercase;
+  border: 0px;
+  cursor: pointer;
+  font: normal 15px $sansBook;
+  letter-spacing: 1px;
+  margin-top: 40px;
+  display: inline-block;
+  -webkit-appearance: none;
+  appearance: none;
+  border: 0 none;
+  border-radius: 0;
+
+  &[disabled="disabled"] {
+    cursor: not-allowed;
+  }
+}
+
+@mixin btn-outlined() {
+  padding: 16px 34px;
+  border: 1px solid #000;
+}
+
+@mixin btn-dark() {
+  padding: 16px 34px;
+  background: $black;
+  color: $white;
+  font-family: $sansRoman;
+}
+
+// Keyframes
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+// Media Queries
+@mixin media($type_or_max_width, $operator: max-width) {
+  @media ($operator: $type_or_max_width)  { @content; }
+}
+
+@mixin media-height($type_or_max_height) {
+  @media (max-height: $type_or_max_height)  { @content; }
+}
+
+// Placeholders
+@mixin placeholder-text() {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+  &:-moz-placeholder {
+    @content;
+  }
+  &::-moz-placeholder {
+    @content;
+  }
+  &:-ms-input-placeholder {
+    @content;
+  }
+}
+
+@mixin placeholder-child() {
+  ::-webkit-input-placeholder {
+    @content;
+  }
+  :-moz-placeholder {
+    @content;
+  }
+  ::-moz-placeholder {
+    @content;
+  }
+  :-ms-input-placeholder {
+    @content;
+  }
+}
+
+// Positioning
+@mixin vertical-center($pos: 50%){
+  position: relative;
+  top: $pos;
+  @include prefix(transform, translateY(-$pos));
+}
+
+// Typography
+@mixin font-family($font, $family-name, $generic-family, $color) {
+  font-family: $font, $family-name, $generic-family;
+  color: $color;
+}
