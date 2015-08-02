@@ -10,6 +10,7 @@ gem 'haml-rails'
 
 gem 'activeadmin', github: 'activeadmin'
 gem 'devise'
+gem 'paperclip', '~> 4.3'
 
 group :development, :test do
   gem 'thin'
