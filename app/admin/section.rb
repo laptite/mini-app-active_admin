@@ -3,7 +3,7 @@ ActiveAdmin.register Section, { sort_order: :id_asc } do
                 :delete_image, :video, :delete_video
 
   config.filters = false
-  # menu false
+  menu false
   actions :all, except: [:show, :destroy]
 
   form html: { multipart: true, class: "form" } do |f|

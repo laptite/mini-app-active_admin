@@ -34,7 +34,14 @@
 }
 
 .full-width {
-  height: 500px;
+  
+  &.top {
+    height: 725px;
+  }
+
+  &.bottom {
+    height: 500px;
+  }
 
   img {
     height: 100%;

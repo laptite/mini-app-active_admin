@@ -11,7 +11,6 @@ ActiveAdmin.register_page "Dashboard" do
         panel "Homepage" do
           HomePage.all.each do |page|
             div class: "panel #{ 'published' if page.published }" do
-              h6 page.title
               div do
                 homepage_layout(page)
               end

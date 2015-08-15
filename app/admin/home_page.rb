@@ -2,7 +2,7 @@ ActiveAdmin.register HomePage, { sort_order: :title_asc } do
   permit_params :title, :published, :link, :section_attributes
 
   config.filters = false
-  menu label: "Home Pages"
+  menu priority: 2, label: "Home Pages"
 
   actions :all, except: [:show, :destroy]
 

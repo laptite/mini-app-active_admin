@@ -9,7 +9,7 @@ class Section < ActiveRecord::Base
         mp4: {
           format: 'mp4', streaming: true, 
           convert_options: {
-            output: { vcodec: => 'libx264', "b:v" => '4000K', "c:a" => "copy" }
+            output: { "vcodec" => 'libx264', "b:v" => '4000K', "c:a" => "copy" }
           },
           processors: [:ffmpeg, :qtfaststart]
         },
