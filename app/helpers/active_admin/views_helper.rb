@@ -11,10 +11,9 @@ module ActiveAdmin::ViewsHelper
     end
   end
 
-  # { edit_cms_section_path(object.sections[0]) }
   def homepage_A(object)
     "<div class=\"grid-container\">
-      <a href=\"#\">
+      <a href=\"#{ edit_admin_section_path(object.sections[0]) }\">
         <div class=\"full-cover\">
           <span>COVER IMAGE</span>
         </div>
@@ -25,18 +24,18 @@ module ActiveAdmin::ViewsHelper
   def homepage_B(object)
     "<div class=\"grid-container\">
       <div class=\"box-wrapper\">
-        <a href=\"#\">
+        <a href=\"#{ edit_admin_section_path(object.sections[0]) }\">
           <div class=\"half-width bbr-0\">
             <span>top-left</span>
           </div>
         </a>
-        <a href=\"#\">
+        <a href=\"#{ edit_admin_section_path(object.sections[1]) }\">
           <div class=\"half-width bb-0\">
             <span>top-right</span>
           </div>
         </a>
       </div>
-      <a href=\"#\">
+      <a href=\"#{ edit_admin_section_path(object.sections[2]) }\">
         <div class=\"full-width\">
           <span>bottom</span>
         </div>
@@ -46,34 +45,34 @@ module ActiveAdmin::ViewsHelper
   
   def homepage_C(object)
     "<div class=\"grid-container\">
-      <a href=\"#\">
+      <a href=\"#{ edit_admin_section_path(object.sections[0])}\">
         <div class=\"full-width bb-0\">
           <span>top</span>
         </div>
       </a>
       <div class=\"box-wrapper\">
-        <a href=\"#\">
+        <a href=\"#{ edit_admin_section_path(object.sections[1]) }\">
           <div class=\"quarter-width bbr-0\">
             <span>A</span>
           </div>
         </a>
-        <a href=\"#\">
+        <a href=\"#{ edit_admin_section_path(object.sections[2]) }\">
           <div class=\"quarter-width bbr-0\">
             <span>B</span>
           </div>
         </a>
-        <a href=\"#\">
+        <a href=\"#{ edit_admin_section_path(object.sections[3]) }\">
           <div class=\"quarter-width bbr-0\">
             <span>C</span>
           </div>
         </a>
-        <a href=\"#\">
+        <a href=\"#{ edit_admin_section_path(object.sections[4]) }\">
           <div class=\"quarter-width bb-0\">
             <span>D</span>
           </div>
         </a>
       </div>
-      <a href=\"#\">
+      <a href=\"#{ edit_admin_section_path(object.sections[5]) }\">
         <div class=\"full-width\">
           <span>bottom</span>
         </div>

@@ -3,27 +3,26 @@ class Section < ActiveRecord::Base
 
   belongs_to :page
 
-  has_attached_file :image, default_url: ActionController::Base.helpers.image_path('missing.png')
-  has_attached_file :video, :styles => {
-        :mp4 => {
-          :format => 'mp4', :streaming => true, 
-          :convert_options => {
-            :output => {:vcodec => 'libx264', "b:v" => '4000K', "c:a" => "copy"}
+  has_attached_file :image, 
+    default_url: ActionController::Base.helpers.image_path('missing.png')
+  has_attached_file :video, styles: {
+        mp4: {
+          format: 'mp4', streaming: true, 
+          convert_options: {
+            output: { vcodec: => 'libx264', "b:v" => '4000K', "c:a" => "copy" }
           },
-          :processors => [:ffmpeg, :qtfaststart]
+          processors: [:ffmpeg, :qtfaststart]
         },
-        :ogv => {
-          :format => 'ogv', :streaming => true,
-          :convert_options => {
-            :output => {"b:v" => '1200K', "c:a" => "copy"}
-          },
+        ogv: {
+          format: 'ogv', streaming: true,
+          convert_options: { output: { "b:v" => '1200K', "c:a" => "copy" } },
           :processors => [:ffmpeg]
         },
-        :poster => { :format => 'jpg', :time => 2 }
+        poster: { format: 'jpg', time: 2 }
       }, 
-      :use_timestamp => false,
-      :url =>   Paperclip::Attachment.default_options[:url],
-      :path =>  "videos/:id/:style/:basename.:extension"
+      use_timestamp: false,
+      url:  Paperclip::Attachment.default_options[:url],
+      path: "videos/:id/:style/:basename.:extension"
       
   validates_attachment_content_type :image, content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"]
   validates_attachment_content_type :video, content_type: ["video/mp4", "video/webm"]

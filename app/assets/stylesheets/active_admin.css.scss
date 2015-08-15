@@ -9,6 +9,21 @@ a {
   text-decoration: none;
 }
 
+.panel {
+  float: left;
+  box-shadow: none;
+
+  h6 {
+    text-align: center;
+    margin-top: 5px;
+  }
+
+  &.published {
+    background-color: darkgray;
+    height: 260px;
+  }
+}
+
 .grid-container {
   position: relative;
   float: left;

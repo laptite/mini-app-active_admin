@@ -1,7 +1,8 @@
 class HomesController < ApplicationController
 
   def index
-    @homes = Home.all
+    @page     = Page.published.first
+    @sections = @page.sections
   end
 
 end
