@@ -9,8 +9,13 @@ ActiveAdmin.register_page "Dashboard" do
     columns do 
       column do
         panel "Homepage" do
-          div do
-            homepage_layout(HomePage.published)
+          HomePage.all.each do |page|
+            div class: "panel #{ 'published' if page.published }" do
+              h6 page.title
+              div do
+                homepage_layout(page)
+              end
+            end
           end
         end
       end
