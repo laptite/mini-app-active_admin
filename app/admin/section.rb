@@ -15,9 +15,8 @@ ActiveAdmin.register Section, { sort_order: :id_asc } do
       f.input :link
       f.input :image, as: :file, hint: (f.object.image.exists? ? image_tag(f.object.image.url, height: '200') : "No image uploaded"), required: true
       f.input :delete_image, as: :boolean, required: false, label: 'Remove' unless f.object.new_record?
-      # f.input :video, as: :file, hint: (f.object.video.exists? ? video_tag(f.object.video.url, height: '200', autoplay: true, loop: true, controls: true) : "No video uploaded")
-      # , required: f.object.home_page.layout == "A"
-      # f.input :delete_video, as: :boolean, required: false, label: 'Remove' unless f.object.new_record?
+      f.input :video, as: :file, hint: (f.object.video.exists? ? video_tag(f.object.video.url, height: '200', autoplay: true, loop: true, controls: true) : "No video uploaded")
+      f.input :delete_video, as: :boolean, required: false, label: 'Remove' unless f.object.new_record?
     end
     f.actions
   end

@@ -1,0 +1,5 @@
+.wrapper{ data: { init: 'video', id: "#{ section.id }" } }
+  .videocontent
+    %video{ id: "main-player", class: "video-js vjs-default-skin vjs-big-play-centered", preload: "auto", autoplay: true, width: "100%", height: "auto", poster: section.video.url(:poster), loop: true, data: { setup: '{ "controls": true}'} }
+      %source{ src: "#{section.video.url(:mp4)}", type: "video/mp4" }
+      %source{ src: "#{section.video.url(:ogv)}", type: "video/ogg" }

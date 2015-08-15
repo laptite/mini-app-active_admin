@@ -1,17 +1,17 @@
 .full-width.top
-  = image_tag sections[0].image.url
+  = render 'section_content', section: sections[0]
 
 .quarter-width.boxA
-  = image_tag sections[1].image.url
+  = render 'section_content', section: sections[1]
 
 .quarter-width.boxB
-  = image_tag sections[2].image.url
+  = render 'section_content', section: sections[2]
 
 .quarter-width.boxC
-  = image_tag sections[3].image.url
+  = render 'section_content', section: sections[3]
 
 .quarter-width.boxD
-  = image_tag sections[4].image.url
+  = render 'section_content', section: sections[4]
 
 .full-width.bottom
-  = image_tag sections[5].image.url
+  = render 'section_content', section: sections[5]

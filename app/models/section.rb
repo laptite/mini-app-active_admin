@@ -4,7 +4,6 @@ class Section < ActiveRecord::Base
   belongs_to :page
 
   has_attached_file :image, 
-    path: "public/system/:class/image/:basename.:extension",
     default_url: ActionController::Base.helpers.image_path('missing.png')
 
   has_attached_file :video, styles: {
@@ -23,8 +22,7 @@ class Section < ActiveRecord::Base
         poster: { format: 'jpg', time: 2 }
       }, 
       use_timestamp: false,
-      url:  Paperclip::Attachment.default_options[:url],
-      path: "videos/:id/:style/:basename.:extension"
+      url:  Paperclip::Attachment.default_options[:url]
       
   validates_attachment_content_type :image, content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"]
   validates_attachment_content_type :video, content_type: ["video/mp4", "video/webm"]

@@ -1,0 +1,11 @@
+- if section.image.present? && section.video.blank?
+  = image_tag section.image.url
+
+- elsif section.video.present?
+  = render 'video_content', section: section.video
+
+- if section.title.present?
+  .section-text
+    .center-vert-outer
+      .center-vert-inner{ class: "#{section.text_position} #{section.color}"}
+        %p= section.title

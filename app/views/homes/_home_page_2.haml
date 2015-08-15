@@ -1,8 +1,8 @@
 .half-width.top-left
-  = image_tag sections[0].image.url
+  = render 'section_content', section: sections[0]
 
 .half-width.top-right
-  = image_tag sections[1].image.url
+  = render 'section_content', section: sections[1]
 
 .full-width.bottom
-  = image_tag sections[2].image.url
+  = render 'section_content', section: sections[2]

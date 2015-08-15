@@ -1,2 +1,14 @@
-- image_link = image_url(sections[0].image.url)
-.home-background-img{ style: "background-image: url(#{image_link}); filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=#{image_link}, sizingMethod='scale'); -ms-filter: 'progid:DXImageTransform.Microsoft.AlphaImageLoader(src=#{image_link}, sizingMethod='scale')';" }
+- section = sections[0]
+
+- if section.image.present? && section.video.blank?
+  - image_link = image_url(section.image.url)
+  .img-cover{ style: "background-image: url(#{image_link}); filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=#{image_link}, sizingMethod='scale'); -ms-filter: 'progid:DXImageTransform.Microsoft.AlphaImageLoader(src=#{image_link}, sizingMethod='scale')';" }
+
+- elsif section.video.present?
+  = render 'video_content', section: section.video
+
+- if section.title.present?
+  .section-text
+    .center-vert-outer
+      .center-vert-inner{ class: "#{section.text_position} #{section.color}"}
+        %p= section.title

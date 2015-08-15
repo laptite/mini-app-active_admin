@@ -44,7 +44,7 @@ class AddDemoContent < ActiveRecord::Migration
           {
             title: 'Cover',
             text_position: 'center',
-            color: 'black',
+            color: 'yellow',
             image_path: "#{Rails.root}/app/assets/images/home_page_1_cover.jpg"
           }
         ]
@@ -81,32 +81,32 @@ class AddDemoContent < ActiveRecord::Migration
         section: [
           {
             title: 'Top',
-            text_position: 'center',
+            text_position: 'top-center',
             color: 'white',
             image_path: "#{Rails.root}/app/assets/images/home_page_3_top.jpg"
           },
           {
             title: 'A',
             text_position: 'center-left-align',
-            color: 'black',
+            color: 'yellow',
             image_path: "#{Rails.root}/app/assets/images/home_page_3_boxA.gif"
             },
           {
             title: 'B',
             text_position: 'center',
-            color: 'black',
+            color: 'yellow',
             image_path: "#{Rails.root}/app/assets/images/home_page_3_boxB.gif"
           },
           {
             title: 'C',
             text_position: 'center',
-            color: 'black',
+            color: 'yellow',
             image_path: "#{Rails.root}/app/assets/images/home_page_3_boxC.gif"
           },
           {
             title: 'D',
             text_position: 'center-right-align',
-            color: 'black',
+            color: 'yellow',
             image_path: "#{Rails.root}/app/assets/images/home_page_3_boxD.gif"
             },
           {
