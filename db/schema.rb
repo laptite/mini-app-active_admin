@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150802131211) do
+ActiveRecord::Schema.define(version: 20150815053828) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -51,23 +51,9 @@ ActiveRecord::Schema.define(version: 20150802131211) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "images", force: :cascade do |t|
-    t.integer  "viewable_id",             limit: 4
-    t.string   "viewable_type",           limit: 255
-    t.string   "type",                    limit: 255
-    t.string   "attachment_file_name",    limit: 255
-    t.string   "attachment_content_type", limit: 255
-    t.integer  "attachment_file_size",    limit: 4
-    t.datetime "attachment_updated_at"
-    t.text     "attachment_meta",         limit: 65535
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "images", ["viewable_id"], name: "index_images_on_viewable_id", using: :btree
-
   create_table "pages", force: :cascade do |t|
     t.string   "title",      limit: 255
+    t.string   "subtitle",   limit: 255
     t.boolean  "published",  limit: 1
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -90,26 +76,5 @@ ActiveRecord::Schema.define(version: 20150802131211) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "videos", force: :cascade do |t|
-    t.integer  "viewable_id",             limit: 4
-    t.string   "viewable_type",           limit: 255
-    t.string   "type",                    limit: 255
-    t.string   "attachment_file_name",    limit: 255
-    t.string   "attachment_content_type", limit: 255
-    t.integer  "attachment_file_size",    limit: 4
-    t.datetime "attachment_updated_at"
-    t.text     "attachment_meta",         limit: 65535
-    t.string   "poster_file_name",        limit: 255
-    t.string   "poster_content_type",     limit: 255
-    t.integer  "poster_file_size",        limit: 4
-    t.datetime "poster_updated_at"
-    t.text     "poster_meta",             limit: 65535
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "videos", ["viewable_id", "type"], name: "index_videos_on_viewable_type_and_type", using: :btree
-  add_index "videos", ["viewable_id"], name: "index_videos_on_viewable_id", using: :btree
 
 end

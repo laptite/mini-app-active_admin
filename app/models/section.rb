@@ -4,7 +4,9 @@ class Section < ActiveRecord::Base
   belongs_to :page
 
   has_attached_file :image, 
+    path: "public/system/:class/image/:basename.:extension",
     default_url: ActionController::Base.helpers.image_path('missing.png')
+
   has_attached_file :video, styles: {
         mp4: {
           format: 'mp4', streaming: true, 
